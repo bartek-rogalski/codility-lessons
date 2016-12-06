@@ -9,7 +9,7 @@ module TapeEquilibrium
     print a
     a.map! { |sum| (sum - (total_value - sum)).abs }
     puts "\n final"
-    print a
+    a.pop
     a.min
   end
 end
