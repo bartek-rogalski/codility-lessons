@@ -3,8 +3,8 @@ require 'minitest/autorun'
 include MissingInteger
 
 describe MissingInteger do
-  it 'correctly returns result for all-positive array' do
-    a = [1, 3, 6, 4, 1, 2]
+  it 'correctly returns result for non-negative array' do
+    a = [1, 3, 6, 4, 1, 2, 0]
     expected_missing_value = 5
     expect(solution(a)).must_equal expected_missing_value
   end
@@ -22,8 +22,8 @@ describe MissingInteger do
   end
 
   it 'correctly returns result one element array' do
-    a = [0]
-    expected_missing_value = 1
+    a = [1]
+    expected_missing_value = 2
     expect(solution(a)).must_equal expected_missing_value
   end
 end
