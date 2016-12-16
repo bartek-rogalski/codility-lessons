@@ -1,5 +1,8 @@
 require './perm_missing_elem.rb'
 require 'minitest/autorun'
+require 'minitest/reporters'
+Minitest::Reporters.use!
+
 include PermMissingElem
 
 describe PermMissingElem do
