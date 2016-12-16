@@ -1,12 +1,11 @@
 # https://codility.com/programmers/lessons/3-time_complexity/perm_missing_elem/
 module PermMissingElem
-  def solution(a)
-    counter = 1
-    a.sort!
-    a.each do |element|
-      return counter if element != counter
-      counter += 1
+  def solution(array)
+    occurences = []
+    array.each do |value|
+      occurences[value - 1] = 1
     end
-    counter
+    occurences << nil
+    occurences.index(nil) + 1
   end
 end
