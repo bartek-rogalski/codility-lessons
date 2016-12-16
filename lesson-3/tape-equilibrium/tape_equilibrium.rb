@@ -1,10 +1,14 @@
 # https://codility.com/programmers/lessons/3-time_complexity/tape_equilibrium/
 module TapeEquilibrium
-  def solution(a)
+  def solution(array)
     total_value = 0
-    a.map! { |elem| total_value += elem }
-    a.map! { |sum| (sum - (total_value - sum)).abs }
-    a.pop
-    a.min
+    array.map! { |elem| total_value += elem }
+    array.pop
+    minimum = (array[0] - (total_value - array[0])).abs
+    array.map do |sum|
+      sum = (sum - (total_value - sum)).abs
+      minimum = sum if sum < minimum
+    end
+    minimum
   end
 end

@@ -1,5 +1,8 @@
 require './tape_equilibrium.rb'
 require 'minitest/autorun'
+require 'minitest/reporters'
+Minitest::Reporters.use!
+
 include TapeEquilibrium
 
 describe TapeEquilibrium do
