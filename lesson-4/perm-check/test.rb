@@ -1,5 +1,8 @@
 require './perm_check.rb'
 require 'minitest/autorun'
+require 'minitest/reporters'
+Minitest::Reporters.use!
+
 include PermCheck
 
 describe PermCheck do
