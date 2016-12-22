@@ -1,11 +1,16 @@
 # https://codility.com/programmers/lessons/3-time_complexity/perm_missing_elem/
 module PermMissingElem
   def solution(array)
-    occurrences = []
-    array.each do |value|
-      occurrences[value - 1] = 1
+    sequence_counter = 1
+    incrementation = 2
+    array_total = 0
+
+    array.each do |element|
+      array_total += element
+      sequence_counter += incrementation
+      incrementation += 1
     end
-    occurrences << nil
-    occurrences.index(nil) + 1
+
+    sequence_counter - array_total
   end
 end
