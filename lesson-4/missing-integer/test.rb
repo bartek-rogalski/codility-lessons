@@ -1,5 +1,8 @@
 require './missing_integer.rb'
 require 'minitest/autorun'
+require 'minitest/reporters'
+Minitest::Reporters.use!
+
 include MissingInteger
 
 describe MissingInteger do
