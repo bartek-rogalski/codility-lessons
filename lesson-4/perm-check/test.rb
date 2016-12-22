@@ -13,8 +13,8 @@ describe PermCheck do
   end
 
   it 'correctly recognizes permutation when passed one' do
-    a = [5, 2, 5, 1, 4]
-    is_perm = 0
+    a = [5, 2, 1, 4, 3, 6]
+    is_perm = 1
     expect(solution(a)).must_equal is_perm
   end
 
