@@ -1,6 +1,6 @@
-# https://codility.com/programmers/lessons/3-time_complexity/perm_missing_elem/
+# https://codility.com/programmers/lessons/4-counting_elements/perm_check/
 module PermCheck
-  def solution(a)
+  def solution(array)
     counter = 1
     a.sort!
     a.each do |element|
