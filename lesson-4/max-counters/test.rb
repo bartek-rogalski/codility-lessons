@@ -13,7 +13,7 @@ describe MaxCounters do
   end
 
   it 'correctly returns values if only maxing counter' do
-    operations = [10]
+    operations = [4]
     n = 3
     expected_counters = [0, 0, 0]
     expect(solution(n, operations)).must_equal expected_counters

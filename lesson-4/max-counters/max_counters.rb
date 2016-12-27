@@ -5,7 +5,7 @@ module MaxCounters
     biggest_value = 0
     operations.each do |modification|
       element = modification - 1
-      if modification = n + 1
+      if modification == n + 1
         counters.map! { biggest_value }
       else
         counters[element] += 1
