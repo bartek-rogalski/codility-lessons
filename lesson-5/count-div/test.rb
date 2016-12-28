@@ -30,7 +30,7 @@ describe CountDiv do
     expect(solution(a, b, div)).must_equal expected_result
   end
 
-  it '' do
+  it 'correctly returns result when divisor is larger than the range minimum' do
     a = 11
     b = 345
     div = 17

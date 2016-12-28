@@ -2,6 +2,6 @@
 module CountDiv
   def solution(a, b, div)
     divisibles = (b / div)
-    divisibles -= (a - 1) / div
+    divisibles - (a - 1) / div
   end
 end
