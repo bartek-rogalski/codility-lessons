@@ -2,6 +2,7 @@ require './max_counters.rb'
 require 'minitest/autorun'
 require 'minitest/reporters'
 Minitest::Reporters.use!
+
 include MaxCounters
 
 describe MaxCounters do
@@ -19,10 +20,17 @@ describe MaxCounters do
     expect(solution(n, operations)).must_equal expected_counters
   end
 
-  it 'correctly returnes raised counters that never have been maxed' do
+  it 'correctly returns raised counters that never have been maxed' do
     operations = [3, 4, 4, 5, 1]
     n = 5
     expected_counters = [1, 0, 1, 2, 1]
+    expect(solution(n, operations)).must_equal expected_counters
+  end
+
+  it 'increses counters twice' do
+    operations = [3, 4, 4, 6, 5, 6, 1]
+    n = 5
+    expected_counters = [4, 3, 3, 3, 3]
     expect(solution(n, operations)).must_equal expected_counters
   end
 end
