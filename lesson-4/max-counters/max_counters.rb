@@ -16,7 +16,7 @@ module MaxCounters
       end
     end
 
-    (1..counters.length - 1).each do |ind|
+    (0..counters.length - 1).each do |ind|
       counters[ind] = smallest_value if counters[ind] < smallest_value
     end
     
