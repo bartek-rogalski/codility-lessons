@@ -17,4 +17,10 @@ describe MinAvgTwoSlice do
     expected_result = 3
     expect(solution(array)).must_equal expected_result
   end
+
+  it 'returns the last three when applicable' do
+    array = [10, 10, -1, 2, 4, -1, 2, -1]
+    expected_result = 5
+    expect(solution(array)).must_equal expected_result
+  end
 end
