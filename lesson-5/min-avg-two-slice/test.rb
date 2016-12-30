@@ -11,4 +11,10 @@ describe MinAvgTwoSlice do
     expected_result = 1
     expect(solution(array)).must_equal expected_result
   end
+
+  it 'returns the first minimum average if multiple equal present' do
+    array = [1, 1, 1, 0, -1, 0, 1, 0, -1, 1]
+    expected_result = 3
+    expect(solution(array)).must_equal expected_result
+  end
 end
