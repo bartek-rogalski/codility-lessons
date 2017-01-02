@@ -11,6 +11,6 @@ describe GenomicRangeQuery do
     p = [2, 5, 0]
     q = [4, 5, 6]
     expected_result = [2, 4, 1]
-    expect(solution(a, b, div)).must_equal expected_result
+    expect(solution(sequence, p, q)).must_equal expected_result
   end
 end
