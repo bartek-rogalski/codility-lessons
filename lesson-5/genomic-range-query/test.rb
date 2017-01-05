@@ -13,4 +13,12 @@ describe GenomicRangeQuery do
     expected_result = [2, 4, 1]
     expect(solution(sequence, p, q)).must_equal expected_result
   end
+
+  it 'returns result for single nucleotide query' do
+    sequence = 'CAGCCTA'
+    p = [2]
+    q = [2]
+    expected_result = [3]
+    expect(solution(sequence, p, q)).must_equal expected_result
+  end
 end
