@@ -1,8 +1,7 @@
 require './number_of_disc_intersections.rb'
 require 'minitest/autorun'
-# require 'minitest/pride'
-# # require 'minitest/reporters'
-# # Minitest::Reporters.use!
+require 'minitest/reporters'
+Minitest::Reporters.use!
 
 include NumberOfDiscIntersections
 
@@ -14,9 +13,21 @@ describe NumberOfDiscIntersections do
     expect(solution(discs)).must_equal intersections
   end
 
-  it 'recognizes overlapping discs of equal size' do
+  it 'recognizes multiple overlapping discs beginnings' do
     discs = [0, 1, 2, 3]
     intersections = 6
+    expect(solution(discs)).must_equal intersections
+  end
+
+  it 'recognizes multiple overlapping discs endings' do
+    discs = [4, 3, 2, 1, 0]
+    intersections = 10
+    expect(solution(discs)).must_equal intersections
+  end
+
+  it 'returns 0 for a single disc' do
+    discs = [20]
+    intersections = 0
     expect(solution(discs)).must_equal intersections
   end
 end
