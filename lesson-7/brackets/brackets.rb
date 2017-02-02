@@ -11,6 +11,6 @@ module Brackets
         ongoing << char
       end
     end
-    1
+    ongoing.empty? ? 1 : 0
   end
 end
