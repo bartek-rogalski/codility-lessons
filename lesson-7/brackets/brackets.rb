@@ -2,13 +2,12 @@
 module Brackets
   def solution(strng)
     ongoing = []
-    beginnings = { '{' => 0, '[' => 1, '(' => 2 }
-    endings    = { '}' => 0, ']' => 1, ')' => 2 }
-    strng.each_char.each do |char|
-      if beginnings[char].nil?
-        return 0 if beginnings[ongoing.pop] != endings[char]
-      else
-        ongoing << char
+    bracket_pairs = { '{' => '}', '[' => ']', '(' => ')' }
+    strng.each_char.each do |bracket|
+      if bracket_pairs[bracket].nil?
+        return 0 if bracket_pairs[ongoing.pop] != bracket
+      else # Opening bracket
+        ongoing << bracket
       end
     end
     ongoing.empty? ? 1 : 0
