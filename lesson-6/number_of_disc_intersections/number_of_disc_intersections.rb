@@ -2,31 +2,29 @@
 module NumberOfDiscIntersections
   def solution(discs)
     intersections = 0
-    # beginnings = {}
+    active_discs = 0
+    discs_count = discs.count
+    last_center = discs_count - 1
+    beginnings = Array.new(discs_count, 0)
+    endings = Array.new(discs_count, 0)
 
-    # discs.each_with_index do |radius, center|
-    #   starts_at = center - radius
-    #   beginnings[starts_at] ||= 0
-    #   beginnings[starts_at] += 1
-    # end
-
-    boundaries = discs.map.with_index { |radius, center|
-      [center - radius, center + radius]
-    }
-    boundaries.sort!
-
-    print "boundaries: #{boundaries}\n"
-    (0..boundaries.count - 1).each do |indx|
-      print "\n\nboundary: #{boundaries[indx]}\n"
-      ending = boundaries[indx].last
-      ((indx + 1)..(boundaries.count - 1)).each do |i|
-        print "\ninspecting #{boundaries[i].first} versus ending in #{ending}"
-        if boundaries[i].first <= ending
-          print " yay, found!"
-          intersections += 1
-        end
-      end
+    discs.each_with_index do |radius, center|
+      starts_at = center - radius > 0 ? center - radius : 0
+      ends_at = center + radius > last_center ? last_center : center + radius
+      beginnings[starts_at] += 1
+      endings[ends_at] += 1
     end
+    
+    (0..discs_count - 1).each do |point|
+      if beginnings[point] > 0
+        intersections += active_discs * beginnings[point]
+        intersections += beginnings[point] * (beginnings[point] - 1) / 2
+        return -1 if intersections > 10_000_000
+        active_discs += beginnings[point]
+      end
+      active_discs -= endings[point]
+    end
+
     intersections
   end
 end
